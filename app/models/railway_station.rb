@@ -1,2 +1,3 @@
-class RailwayStation < ApplicationRecord
+class RailwayStation < ActiveRecord::Base
+  validates :title, presence: true
 end
