@@ -5,4 +5,5 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   # TODO: add validation regex for email
   validates :email, presence: true
+  validates :category, presence: true
 end
