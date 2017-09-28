@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   has_many :tickets, dependent: :destroy
   
-  validates :name, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  # TODO: add validation regex for email
+  validates :email, presence: true
 end
