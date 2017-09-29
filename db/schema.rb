@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927125520) do
+ActiveRecord::Schema.define(version: 20170929001119) do
 
   create_table "railway_stations", force: :cascade do |t|
     t.string "title"
@@ -29,12 +29,35 @@ ActiveRecord::Schema.define(version: 20170927125520) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.decimal "price", precision: 5, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "start_station_id"
+    t.integer "end_station_id"
+    t.integer "user_id"
+    t.integer "train_id"
+    t.index ["end_station_id"], name: "index_tickets_on_end_station_id"
+    t.index ["start_station_id"], name: "index_tickets_on_start_station_id"
+    t.index ["train_id"], name: "index_tickets_on_train_id"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
+  end
+
   create_table "trains", force: :cascade do |t|
     t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "current_station_id"
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "category", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "last_name"
+    t.string "email", limit: 60
   end
 
 end
