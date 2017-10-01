@@ -30,6 +30,7 @@ class TrainsController < ApplicationController
       redirect_to @train
     else
       render :edit
+      
     end
   end
 
