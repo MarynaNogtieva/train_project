@@ -12,5 +12,14 @@
      Not mentioned
   <%end%>
 </p>
+
+<p>
+  <strong>On the route:</strong>
+  <%if @train.route.present? %>
+    <%=@train.route.name%>
+  <%else%>
+     Not assigned
+  <%end%>
+</p>
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
