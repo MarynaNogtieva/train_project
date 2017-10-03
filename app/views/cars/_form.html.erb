@@ -21,8 +21,8 @@
   </div>
   
   <div class="field">
-    <%= form.radio_button(:is_econom, "Econom")%> Econom
-    <%= form.radio_button(:is_econom, "Business") %> Business
+    <%= form.radio_button(:is_econom, true, :checked => true)%> Econom
+    <%= form.radio_button(:is_econom, false) %> Business
   </div>
 
   <div class="actions">
