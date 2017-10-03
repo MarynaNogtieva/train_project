@@ -1,5 +1,19 @@
 <tr>
+  <%econom_cars = train.cars.select {|car| car.is_econom}%>
+  <%business_cars = train.cars.select {|car| !car.is_econom}%>
+  
+  <%business_top_seats, business_bottom_seats, econom_top_seats, econom_bottom_seats = 0, 0, 0, 0%>
+  
+  <%econom_cars.zip(business_cars).each do |econom_car, business_car|%>
+    <%business_top_seats = business_car.top_seats %>
+    <%business_bottom_seats = business_car.bottom_seats %>
+    <%econom_top_seats = econom_car.top_seats %>
+    <%econom_top_seats = econom_car.top_seats %>
+  <%end%>
+  
   <td><%= train.number %></td>
+  <td> <%= "Econom cars: #{econom_cars.count}, top seats: #{econom_top_seats}  ,bottom seats: #{econom_bottom_seats}" %> </td>  
+  <td> <%= "Business cars: #{business_cars.count}, top seats:#{business_top_seats}   ,bottom seats:#{business_bottom_seats}" %> </td>
   <td><%= link_to 'Show', train %></td>
   <td><%= link_to 'Edit', edit_train_path(train) %></td>
   <td><%= link_to 'Destroy', train, method: :delete, data: { confirm: 'Are you sure?' } %></td>
