@@ -2,7 +2,7 @@ class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cars = Cars.all
+    @cars = Car.all
   end
 
   def show
@@ -42,7 +42,7 @@ class CarsController < ApplicationController
   private
 
   def set_car
-    @car = car.find(params[:id])
+    @car = Car.find(params[:id])
   end
 
   def car_params
