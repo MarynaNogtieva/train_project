@@ -1,0 +1,25 @@
+
+
+<p>
+  <strong>Number:</strong>
+  <%= @car.number %>
+</p>
+<p>
+  <strong>Train:</strong>
+  <%if @car.train.present?%>
+    <%=@car.train.number%>
+  <%else%>
+     Car does not belong to any train
+  <%end%>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%if @car.is_econom %>
+    Econom
+  <%else%>
+     Business
+  <%end%>
+</p>
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>
