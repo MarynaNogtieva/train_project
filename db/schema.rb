@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003011844) do
+ActiveRecord::Schema.define(version: 20171003021422) do
 
   create_table "cars", force: :cascade do |t|
-    t.string "car_type"
     t.integer "top_seats"
     t.integer "bottom_seats"
     t.boolean "is_econom", default: true
