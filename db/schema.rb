@@ -10,8 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 
 ActiveRecord::Schema.define(version: 20171006022316) do
+=======
+ActiveRecord::Schema.define(version: 20171006022316) do
+
+>>>>>>> Stashed changes
   create_table "cars", force: :cascade do |t|
     t.integer "top_seats"
     t.integer "bottom_seats"
