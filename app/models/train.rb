@@ -9,11 +9,11 @@ class Train < ApplicationRecord
   validates :number, presence: true
   
   def econom_cars
-    econom_cars = cars.select {|car| car.is_econom}
+    econom_cars = cars.select {|car| car.car_type == "econom"}
   end
   
   def business_cars
-    business_cars = cars.select {|car| !car.is_econom}
+    business_cars = cars.select {|car| car.car_type == "business"}
     
   end
   
