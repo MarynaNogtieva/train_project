@@ -1,0 +1,31 @@
+<%= form_with(model: car, local: true) do |form| %>
+   <%= render 'shared/errors', resource: car%>
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :bottom_seats %>
+    <%= form.text_field :bottom_seats %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :top_seats %>
+    <%= form.text_field :top_seats %>
+  </div>
+  
+  <div class="field">
+    <%= form.label "Train" %>
+    <%= form.collection_select :train_id, Train.all, :id, :number %>
+  </div>
+  
+  <div class="field">
+    <%= form.label "Type:" %>
+    <%= form.text_field :car_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "#{@car.new_record? ? 'Save' : 'Edit'}"%>
+  </div>
+<% end %>
