@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 20171003021422) do
+=======
+ActiveRecord::Schema.define(version: 20171006022316) do
+>>>>>>> Stashed changes
 
   create_table "cars", force: :cascade do |t|
     t.integer "top_seats"
     t.integer "bottom_seats"
+<<<<<<< Updated upstream
     t.boolean "is_econom", default: true
+=======
+    t.string "car_type", limit: 30, default: "econom"
+>>>>>>> Stashed changes
     t.integer "train_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
