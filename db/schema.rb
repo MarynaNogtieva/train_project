@@ -10,13 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
+ActiveRecord::Schema.define(version: 20171007204531) do
 
-ActiveRecord::Schema.define(version: 20171006022316) do
-=======
-ActiveRecord::Schema.define(version: 20171006022316) do
-
->>>>>>> Stashed changes
   create_table "cars", force: :cascade do |t|
     t.integer "top_seats"
     t.integer "bottom_seats"
@@ -25,6 +20,9 @@ ActiveRecord::Schema.define(version: 20171006022316) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number"
+    t.integer "top_side_seats"
+    t.integer "bottom_side_seats"
+    t.integer "seated_seats"
     t.index ["train_id"], name: "index_cars_on_train_id"
   end
 

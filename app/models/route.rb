@@ -9,12 +9,12 @@ class Route < ActiveRecord::Base
   
   
   # creating route name on route creation
-  
   before_validation :set_name
   
   private
+  
   def set_name
-    self.name ||= "#{railway_stations.first.title} - #{railway_stations.last.title}"
+    self.name = "#{railway_stations.first.title} - #{railway_stations.last.title}"
   end
   
   def stations_count

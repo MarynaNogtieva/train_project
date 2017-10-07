@@ -1,0 +1,3 @@
+class BusinessCar < Car
+
+end
