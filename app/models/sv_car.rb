@@ -1,3 +1,3 @@
 class SvCar < Car
-  validates :seated_seats, presence: true
+  validates :bottom_seats, presence: true
 end
