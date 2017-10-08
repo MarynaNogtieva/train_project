@@ -20,8 +20,8 @@ class Train < ApplicationRecord
   def seats(cars)
     seats = {top_seats: 0, bottom_seats: 0}
     cars.each do |car|
-      seats[:top_seats] = car.top_seats
-      seats[:bottom_seats] = car.bottom_seats
+      seats[:top_seats] += car.top_seats
+      seats[:bottom_seats] += car.bottom_seats
     end
     seats
   end
