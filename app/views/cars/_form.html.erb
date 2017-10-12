@@ -1,20 +1,40 @@
 <%= form_with(model: car, local: true) do |form| %>
    <%= render 'shared/errors', resource: car%>
-  <!-- <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number %>
-  </div> -->
+
+  <%# if car.type == 'Car' || %w(EconomCar BusinessCar SvCar).include?(car.type) %>
+    <div class="field">
+      <%= form.label :bottom_seats %>
+      <%= form.text_field :bottom_seats %>
+    </div>
+  <%# end %>
   
-  <div class="field">
-    <%= form.label :bottom_seats %>
-    <%= form.text_field :bottom_seats %>
-  </div>
+  <%# if car.type == 'Car' || %w(EconomCar BusinessCar).include?(car.type) %>
+    <div class="field">
+      <%= form.label :top_seats %>
+      <%= form.text_field :top_seats %>
+    </div>
+  <%# end %>
   
-  <div class="field">
-    <%= form.label :top_seats %>
-    <%= form.text_field :top_seats %>
-  </div>
+  <%# if %w(EconomCar).include?(car.type) %>
+    <div class="field">
+      <%= form.label :top_side_seats %>
+      <%= form.text_field :top_side_seats %>
+    </div>
+  <%# end %>
   
+  <%# if %w(EconomCar).include?(car.type) %>
+    <div class="field">
+      <%= form.label :bottom_side_seats %>
+      <%= form.text_field :bottom_side_seats %>
+    </div>
+  <%# end %>
+  
+  <%# if %w(SeatedCar).include?(car.type) %>
+    <div class="field">
+      <%= form.label :seated_seats %>
+      <%= form.text_field :seated_seats %>
+    </div>
+  <%#end%>
   <div class="field">
     <%= form.label "Train" %>
     <%= form.collection_select :train_id, Train.all, :id, :number %>
@@ -22,7 +42,7 @@
   
   <div class="field">
     <%= form.label "Type:" %>
-    <%= form.text_field :car_type %>
+    <%= form.select :type, Car.unique_types, {prompted: 'Select car type'} %>
   </div>
 
   <div class="actions">

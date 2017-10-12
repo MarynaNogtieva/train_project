@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20171007211727) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number"
+    t.string "type"
     t.integer "top_side_seats"
     t.integer "bottom_side_seats"
     t.integer "seated_seats"
