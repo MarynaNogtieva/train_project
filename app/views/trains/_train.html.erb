@@ -18,8 +18,8 @@
     bottom seats: #{train.seats(car_type: 'SvCar', seats_type: 'bottom_seats')}"
      %>  
   </td> 
-  <td> <%= "Sv cars: #{train.cars.sv.count},
-    seated seats: #{train.seats(car_type: 'SeatedCar', seats_type: 'bottom_seats')}"
+  <td> <%= "Seated cars: #{train.cars.seated.count},
+    seated seats: #{train.seats(car_type: 'SeatedCar', seats_type: 'seated_seats')}"
      %>  
   </td> 
 
