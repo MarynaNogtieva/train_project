@@ -1,10 +1,28 @@
 <tr>
-  <%econom_seats = train.seats(train.econom_cars)%>
-  <%business_seats = train.seats(train.business_cars)%>
+
   
   <td><%= train.number %></td>
-  <td> <%= "Econom cars: #{train.econom_cars.count}, top seats: #{econom_seats[:top_seats]}  ,bottom seats: #{econom_seats[:bottom_seats]}" %> </td>  
-  <td> <%= "Business cars: #{train.business_cars.count}, top seats:#{business_seats[:top_seats]}   ,bottom seats:#{business_seats[:bottom_seats]}" %> </td>
+  <td> <%= "Econom cars: #{train.cars.economy.count},
+    top seats: #{train.seats(car_type: 'EconomCar', seats_type: 'top_seats')}, 
+    bottom seats: #{train.seats(car_type: 'EconomCar', seats_type: 'bottom_seats')},
+    top side seats: #{train.seats(car_type: 'EconomCar', seats_type: 'top_side_seats')},
+    bottom side seats: #{train.seats(car_type: 'EconomCar', seats_type: 'bottom_side_seats')}"
+     %>  
+  </td>  
+  <td> <%= "Business cars: #{train.cars.business.count},
+    top seats: #{train.seats(car_type: 'BusinessCar', seats_type: 'top_seats')}, 
+    bottom seats: #{train.seats(car_type: 'BusinessCar', seats_type: 'bottom_seats')}"
+     %>  
+  </td>  
+  <td> <%= "Sv cars: #{train.cars.sv.count},
+    bottom seats: #{train.seats(car_type: 'SvCar', seats_type: 'bottom_seats')}"
+     %>  
+  </td> 
+  <td> <%= "Sv cars: #{train.cars.sv.count},
+    seated seats: #{train.seats(car_type: 'SeatedCar', seats_type: 'bottom_seats')}"
+     %>  
+  </td> 
+
   <td><%= link_to 'Show', train %></td>
   <td><%= link_to 'Edit', edit_train_path(train) %></td>
   <td><%= link_to 'Destroy', train, method: :delete, data: { confirm: 'Are you sure?' } %></td>
