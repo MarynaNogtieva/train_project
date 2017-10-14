@@ -39,11 +39,7 @@ class Car < ApplicationRecord
   private 
   
   def set_number
-    if train.cars.size == 0
-      self.number = 1
-    else
       self.number = train.cars.maximum(:number).to_i + 1
-    end
   end
     
   # def reset_number
