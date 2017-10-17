@@ -19,13 +19,10 @@ class Car < ApplicationRecord
   before_validation :set_number
   
   def kind
-    case self.type
-    when 'EconomCar' then 'economy'
-    when 'BusinessCar' then 'business'
-    when 'SeatedCar' then 'seated'
-    when 'SvCar' then 'sv'
-    else 'Car type was not set'
-    end
+    car_type_hash =  {'EconomCar' => 'economy', 'BusinessCar' => 'economy', 'SeatedCar' => 'seated', 'SvCar' => 'sv'} 
+
+    result = car_type_hash.fetch(self.type, 'Car type was not set')
+    result
   end
   
   def self.unique_types

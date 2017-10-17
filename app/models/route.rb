@@ -24,6 +24,6 @@ class Route < ActiveRecord::Base
   end
   
   def stations_on_route
-    railway_stations.where().ordered
+    railway_stations.ordered
   end
 end
