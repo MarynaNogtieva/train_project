@@ -38,14 +38,20 @@ class CarsController < ApplicationController
     @car.destroy
     redirect_to cars_path
   end
+  
+  
 
   private
 
   def set_car
     @car = Car.find(params[:id])
   end
+  
+  def type
+    Car.types.include?(params[:type]) ? params[:type] : "Car"
+  end
 
   def car_params
-    params.require(:car).permit(:car_type, :number, :bottom_seats, :top_seats, :is_econom, :train_id)
+    params.require(type.underscore.to_sym).permit(:car_type, :type, :number, :bottom_seats, :top_seats,:top_side_seats, :bottom_side_seats, :seated_seats, :train_id, :car)
   end
 end

@@ -13,8 +13,9 @@
   <%end%>
 </p>
 
+
+  <h3>On the route:</h3>
 <p>
-  <strong>On the route:</strong>
   <%if @train.route.present? %>
     <%=@train.route.name%>
   <%else%>
@@ -22,14 +23,13 @@
   <%end%>
 </p>
 
-<%econom_seats = @train.seats(@train.econom_cars)%>
-<%business_seats = @train.seats(@train.business_cars)%>
+<h3>Cars</h3>
+<ul>
+  <%@train.cars.ordered_asc.each do |car|%>
+    <li><%= link_to "#{car.number}", car_path(car)%></li>
+  <%end%>
+</ul>
 
-<p>
-  <%= "Econom cars: #{@train.econom_cars.count}, top seats: #{econom_seats[:top_seats]}  ,bottom seats: #{econom_seats[:bottom_seats]}" %>
-</p> 
-<p>
-<%= "Business cars: #{@train.business_cars.count}, top seats:#{business_seats[:top_seats]}   ,bottom seats:#{business_seats[:bottom_seats]}" %>
-</p>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

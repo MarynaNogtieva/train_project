@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :trains
   resources :railway_stations
   resources :cars
+  resources :econom_car, controller: 'cars', type: 'EconomCar'
+  resources :sv_car, controller: 'cars', type: 'SvCar'
+  resources :business_car, controller: 'cars', type: 'BusinessCar'
+  resources :seated_car, controller: 'cars', type: 'SeatedCar'
+  
   get 'welcome/index'
   
   root 'welcome#index'

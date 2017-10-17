@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <%= render @cars%>
+    <%= render(partial: 'car', collection: @cars.ordered_asc, as: :car)%>
   </tbody>
 </table>
 

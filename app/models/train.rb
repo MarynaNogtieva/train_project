@@ -8,21 +8,16 @@ class Train < ApplicationRecord
   
   validates :number, presence: true
   
-  def econom_cars
-    econom_cars = cars.select {|car| car.car_type == "econom"}
+  def seats(car_type:, seats_type:)
+    cars.where(type: car_type).sum(seats_type)
   end
   
-  def business_cars
-    business_cars = cars.select {|car| car.car_type == "business"}
-    
-  end
-  
-  def seats(cars)
-    seats = {top_seats: 0, bottom_seats: 0}
-    cars.each do |car|
-      seats[:top_seats] = car.top_seats
-      seats[:bottom_seats] = car.bottom_seats
-    end
-    seats
-  end
+  # def seats(cars)
+  #   seats = {top_seats: 0, bottom_seats: 0}
+  #   cars.each do |car|
+  #     seats[:top_seats] += car.top_seats
+  #     seats[:bottom_seats] += car.bottom_seats
+  #   end
+  #   seats
+  # end
 end
