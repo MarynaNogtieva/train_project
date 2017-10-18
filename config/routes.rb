@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :routes
   resources :trains
-  resources :railway_stations
+  resources :railway_stations do
+    patch :update_serial_number, on: :member #we can use on: :collectoin
+  end
   resources :cars
   resources :econom_car, controller: 'cars', type: 'EconomCar'
   resources :sv_car, controller: 'cars', type: 'SvCar'

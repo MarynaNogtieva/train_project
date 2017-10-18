@@ -3,5 +3,5 @@ class RailwayStationsRoute < ActiveRecord::Base
   belongs_to :route
   
   # uniqueness: true validation is global for the whole table
-  validates :railway_station_id, uniqueness: { scope: :route_id }
+  validates :railway_station_id, uniqueness: { scope: :route_id }  
 end
