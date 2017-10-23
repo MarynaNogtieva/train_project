@@ -10,7 +10,6 @@ class RailwayStation < ActiveRecord::Base
   scope :ordered, -> { joins(:railway_stations_routes).order('railway_stations_routes.station_serial_number').uniq }
   
   def update_serial_number(route, position)
-  
     station_route = station_route(route)
     puts "STATION_ROUTE = #{station_route}"
     station_route.update(station_serial_number: position) if station_route
@@ -19,10 +18,16 @@ class RailwayStation < ActiveRecord::Base
   def position_in(route)
     station_route(route).try(:station_serial_number)
   end
+  
+  def update_time(time:, time_type:, route:)
+      station_route = station_route(route)
+      station_route.update(time_type => time) if station_route
+  end
+  
 
   protected
 
   def station_route(route)
-    @station_route = railway_stations_routes.where(route_id: route).first
+    @station_route = railway_stations_routes.where(route_id: route.id).first
   end
 end

@@ -1,16 +1,16 @@
 class RailwayStationsController < ApplicationController
-  before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_serial_number]
+  before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_serial_number, :update_time_departure, :update_time_arrival]
   
-  before_action :set_route, only: [:update_serial_number]
+  before_action :set_route, only: [:update_serial_number,  :update_time_departure, :update_time_arrival]
+  
+  # before_action , only: %i[update_time_departure, update_time_arrival]
 
   # GET /railway_stations
-  # GET /railway_stations.json
   def index
     @railway_stations = RailwayStation.all
   end
 
   # GET /railway_stations/1
-  # GET /railway_stations/1.json
   def show
   end
 
@@ -24,7 +24,6 @@ class RailwayStationsController < ApplicationController
   end
 
   # POST /railway_stations
-  # POST /railway_stations.json
   def create
     @railway_station = RailwayStation.new(railway_station_params)
 
@@ -40,7 +39,6 @@ class RailwayStationsController < ApplicationController
   end
 
   # PATCH/PUT /railway_stations/1
-  # PATCH/PUT /railway_stations/1.json
   def update
     respond_to do |format|
       if @railway_station.update(railway_station_params)
@@ -48,24 +46,31 @@ class RailwayStationsController < ApplicationController
         format.json { render :show, status: :ok, location: @railway_station }
       else
         format.html { render :edit }
-        format.json { render json: @railway_station.errors, status: :unprocessable_entity }
       end
     end
   end
   
   def update_serial_number
-    @railway_station.update_serial_number(params[:route_id], params[:station_serial_number])
+    @railway_station.update_serial_number(@route, params[:station_serial_number])
      redirect_to @route
     #render text: params
   end
+  
+  def update_time_departure
+     @railway_station.update_time(time: params[:departure_time], time_type: 'time_departure',route: @route)
+    redirect_to @route
+  end
+  
+  def update_time_arrival
+     @railway_station.update_time(time: params[:arrival_time], time_type: 'time_arrival',route: @route)
+     redirect_to @route
+  end
 
   # DELETE /railway_stations/1
-  # DELETE /railway_stations/1.json
   def destroy
     @railway_station.destroy
     respond_to do |format|
       format.html { redirect_to railway_stations_url, notice: 'Railway station was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
