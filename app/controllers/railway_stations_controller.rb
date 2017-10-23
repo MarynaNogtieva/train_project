@@ -57,12 +57,12 @@ class RailwayStationsController < ApplicationController
   end
   
   def update_time_departure
-     @railway_station.update_time(time: params[:departure_time], time_type: 'time_departure',route: @route)
+     @railway_station.update_time(time: params[:time_departure], time_type: 'time_departure',route: @route)
     redirect_to @route
   end
   
   def update_time_arrival
-     @railway_station.update_time(time: params[:arrival_time], time_type: 'time_arrival',route: @route)
+     @railway_station.update_time(time: params[:time_arrival], time_type: 'time_arrival',route: @route)
      redirect_to @route
   end
 

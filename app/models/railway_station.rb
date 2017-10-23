@@ -24,6 +24,13 @@ class RailwayStation < ActiveRecord::Base
       station_route.update(time_type => time) if station_route
   end
   
+  def arrival_at(route)
+   station_route(route).try(:time_arrival).try(:strftime, "%H:%M")
+  end
+  
+  def departure_at(route)
+    time = station_route(route).try(:time_departure).try(:strftime, "%H:%M")
+  end
 
   protected
 

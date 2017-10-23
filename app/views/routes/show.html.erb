@@ -26,7 +26,7 @@
       <th>Time departure</th>
     </thead>
     <tbody>
-      <% @route.railway_stations.each do |station|%>
+      <% @route.railway_stations.ordered.each do |station|%>
         <tr>
           <td>
             <%= form_tag update_serial_number_railway_station_path(station), method: :patch do%>
@@ -38,14 +38,14 @@
           <td><%=station.title%></td>
           <td>
             <%=form_tag update_time_arrival_railway_station_path(station), method: :patch do%>
-              <%= time_field_tag :arrival_time %>
+              <%= time_field_tag :time_arrival, station.arrival_at(@route) %>
               <%= hidden_field_tag :route_id, @route.id %>
               <%= submit_tag "Edit" %>
             <% end %>
          </td>
           <td>  
             <%=form_tag update_time_departure_railway_station_path(station), method: :patch do%>
-              <%= time_field_tag :departure_time %>
+              <%= time_field_tag :time_departure, station.departure_at(@route) %>
               <%= hidden_field_tag :route_id, @route.id %>
               <%= submit_tag "Edit" %>
             <% end %>
