@@ -58,6 +58,6 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(type.underscore.to_sym).permit(:car_type, :type, :number, :bottom_seats, :top_seats,:top_side_seats, :bottom_side_seats, :seated_seats, :train_id, :car)
+    params.require(:car).permit(:car_type, :type, :number, :bottom_seats, :top_seats,:top_side_seats, :bottom_side_seats, :seated_seats, :train_id, :car)
   end
 end
