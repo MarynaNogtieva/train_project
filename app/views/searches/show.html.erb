@@ -1,0 +1,10 @@
+<h1>Tickets search</h1>
+
+
+<%= form_tag(search_path, method:'post') do  %>
+  <%= label_tag(:start_station_id, 'Depart from:')%>
+  <%= collection_select(:search, :start_station_id, @stations, :id, :title ) %>
+  <%= label_tag(:start_station_id, 'Arrive to:')%>
+  <%= collection_select(:search, :end_station_id, @stations, :id, :title ) %>
+  <%= submit_tag 'Search'%>
+<% end %>

@@ -1,0 +1,5 @@
+<h1>Result for your search: <%= @start_station.title %> - <%= @end_station.title %></h1>
+
+<% @routes_trains.each do |record| %>
+  <%= record.route_name %>
+<% end %>

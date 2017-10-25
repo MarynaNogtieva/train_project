@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+
   resources :routes
   resources :trains do
     resources :cars, shallow: true
@@ -17,6 +19,10 @@ Rails.application.routes.draw do
   resources :sv_car, controller: 'cars', type: 'SvCar'
   resources :business_car, controller: 'cars', type: 'BusinessCar'
   resources :seated_car, controller: 'cars', type: 'SeatedCar'
+  
+  get 'search', to: 'searches#show'
+  patch 'search', to: 'searches#update'
+  post 'search', to: 'searches#create'
   
   get 'welcome/index'
   
