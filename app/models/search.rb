@@ -10,7 +10,7 @@ class Search < ActiveRecord::Base
     #  where s.id = 1 and s.id =11
     # NOTE: try to use pluck instead of select in future
     
-    Route.joins([{railway_stations_routes: :railway_station}, :trains]).select('routes.id as route_id, routes.name as route_name, trains.number as train_number').where(railway_stations: {id: start_station_id}).where(railway_stations: {id: end_station_id})
+    Route.joins({railway_stations_routes: :railway_station}).joins('LEFT JOIN trains on trains.route_id = routes.id').select('routes.id as route_id, routes.name as route_name, trains.number as train_number').where(railway_stations: {id:[start_station_id,end_station_id]})
   end 
 end
 
