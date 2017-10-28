@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :seated_car, controller: 'cars', type: 'SeatedCar'
   
   resource :search, only: [:show, :new]
+  resources :tickets, path_names: { new: 'buy', edit: 'change' }
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,0 +1,20 @@
+<%= form_with(model: ticket, local: true) do |form| %>
+<%= render 'shared/errors', resource: @ticket%>
+
+  <div class="actions">
+    <%= form.label 'First Name: '%>
+    <%= form.text_field :first_name %>
+    <%= form.label 'Last Name: '%>
+    <%= form.text_field :last_name %>
+    <%= form.label 'Passport Series: '%>
+    <%= form.text_field :passport_series %>
+    <%= form.label 'Passport Number: '%>
+    <%= form.text_field :passport_number %>
+    
+    
+    <%= hidden_field :ticket, :train_id, value: @ticket_params['train_id'] %>
+    <%= hidden_field :ticket, :start_station_id, value: @ticket_params['start_station_id'] %>
+    <%= hidden_field :ticket, :end_station_id, value: @ticket_params['end_station_id'] %>
+    <%= form.submit %>
+  </div>
+<% end %>
