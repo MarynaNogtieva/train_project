@@ -20,13 +20,8 @@ Rails.application.routes.draw do
   resources :business_car, controller: 'cars', type: 'BusinessCar'
   resources :seated_car, controller: 'cars', type: 'SeatedCar'
   
-  get 'search', to: 'searches#show'
-  patch 'search', to: 'searches#update'
-  post 'search', to: 'searches#create'
-  
-  get 'welcome/index'
-  
-  root 'welcome#index'
+  resource :search, only: [:show, :new]
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
