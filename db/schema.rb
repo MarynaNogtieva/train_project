@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025014623) do
+ActiveRecord::Schema.define(version: 20171030124615) do
 
   create_table "cars", force: :cascade do |t|
     t.integer "top_seats"
@@ -47,13 +47,6 @@ ActiveRecord::Schema.define(version: 20171025014623) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "searches", force: :cascade do |t|
-    t.integer "start_station_id"
-    t.integer "end_station_id"
-    t.index ["end_station_id"], name: "index_searches_on_end_station_id"
-    t.index ["start_station_id"], name: "index_searches_on_start_station_id"
-  end
-
   create_table "tickets", force: :cascade do |t|
     t.decimal "price", precision: 5, scale: 2
     t.datetime "created_at", null: false
@@ -62,6 +55,10 @@ ActiveRecord::Schema.define(version: 20171025014623) do
     t.integer "end_station_id"
     t.integer "user_id"
     t.integer "train_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "passport_series"
+    t.string "passport_number"
     t.index ["end_station_id"], name: "index_tickets_on_end_station_id"
     t.index ["start_station_id"], name: "index_tickets_on_start_station_id"
     t.index ["train_id"], name: "index_tickets_on_train_id"

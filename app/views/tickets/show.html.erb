@@ -6,7 +6,8 @@
 <p>End station: <%= @ticket.end_station.title %></p>
 
 <h2>Passenger Info</h2>
-<p>First Name: <%= @passenger.first_name %></p>
-<p>Last Name: <%= @passenger.last_name %></p>
+<p>First Name: <%= @ticket.first_name %></p>
+<p>Last Name: <%= @ticket.last_name %></p>
+<p>Passport: <%= @ticket.passport_series %> <%= @ticket.passport_number %></p>
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
 <%= link_to 'Back', tickets_path %>
