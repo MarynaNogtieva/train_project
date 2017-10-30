@@ -4,6 +4,7 @@ class Car < ApplicationRecord
   belongs_to :train, optional: true
   
   validates :number, presence: true
+  validates :number, uniqueness: {scope: :train_id}
   validates :type, inclusion: { in: CAR_TYPES, message: "%{type} is not a valid type" }
   
   # order by number by default
@@ -19,8 +20,7 @@ class Car < ApplicationRecord
   before_validation :set_number
   
   def kind
-    car_type_hash =  {'EconomCar' => 'economy', 'BusinessCar' => 'economy', 'SeatedCar' => 'seated', 'SvCar' => 'sv'} 
-
+    car_type_hash =  {'EconomCar' => 'economy', 'BusinessCar' => 'business', 'SeatedCar' => 'seated', 'SvCar' => 'sv'} 
     result = car_type_hash.fetch(self.type, 'Car type was not set')
     result
   end
@@ -38,13 +38,4 @@ class Car < ApplicationRecord
   def set_number
       self.number = (train.cars.maximum(:number) || 0).next
   end
-    
-  # def reset_number
-  #   selected_train = Train.joins(:cars).where(cars: {train: :train})
-  #   car_number = 1
-  #   selected_train.cars.each do |car|
-  #     car.number = car_number
-  #     car_number += 1
-  #   end
-  # end
 end
