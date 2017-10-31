@@ -4,6 +4,3 @@ class Search
     Train.includes(route: :railway_stations).where(railway_stations: { id: end_station_id })    
   end 
 end
-
-
-

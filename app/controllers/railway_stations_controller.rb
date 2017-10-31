@@ -1,5 +1,5 @@
 class RailwayStationsController < ApplicationController
-  before_action :set_railway_station, only: %i[show edit update destroy     update_serial_number update_time_departure update_time_arrival]
+  before_action :set_railway_station, only: %i[show edit update destroy update_serial_number update_time_departure update_time_arrival]
   
   before_action :set_route, only: %i[update_serial_number update_time_departure update_time_arrival]
   
@@ -9,8 +9,7 @@ class RailwayStationsController < ApplicationController
   end
 
   # GET /railway_stations/1
-  def show
-  end
+  def show; end
 
   # GET /railway_stations/new
   def new
@@ -48,7 +47,7 @@ class RailwayStationsController < ApplicationController
   end
   
   def update_serial_number
-    @railway_station.update_serial_number(@route, params[:station_serial_number])
+    @railway_station.update_serial_number(route: @route, position: params[:station_serial_number])
     redirect_to @route
   end
   

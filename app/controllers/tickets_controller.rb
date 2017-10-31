@@ -1,5 +1,4 @@
 class TicketsController < ApplicationController
-  before_action :set_parameters, only: [:new, :create]
   
   def index
     @tickets = Ticket.all
@@ -35,9 +34,5 @@ class TicketsController < ApplicationController
   def ticket_params
     params.require(:ticket).permit(:train_id, :start_station_id, :end_station_id, 
       :first_name, :last_name, :passport_number, :passport_series)
-  end
-    
-  def set_parameters
-    @ticket_params = params.permit(:train_id, :start_station_id, :end_station_id).to_hash
-  end
+  end  
 end
