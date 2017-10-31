@@ -5,14 +5,14 @@
   <%= @route.name %>
 </p>
 
-<%if @route.trains.empty? %>
-  <p>There are no trains on this route</p>
-<%else%>
+<%if @route.trains.any? %>
   <ul>
     <%@route.trains.each do |train|%>
     <li><%= train.number %></li>
     <%end%>
   </ul>
+<%else%>
+    <p>There are no trains on this route</p>
 <%end%>
 
 <% if @route.railway_stations.empty? %>
