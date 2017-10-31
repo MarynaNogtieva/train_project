@@ -1,6 +1,7 @@
 class RoutesController < ApplicationController
   
-  before_action :set_train, only: [:show, :edit, :update, :destroy]
+  before_action :set_train, only: %i[show edit update destroy]
+  
   def index
     @routes = Route.all
   end
@@ -8,11 +9,11 @@ class RoutesController < ApplicationController
   def show
     @route = Route.find(params[:id])
   end
-  
+
   def new
     @route = Route.new
   end
-  
+
   def create
     @route = Route.new(route_params)
     
@@ -23,8 +24,7 @@ class RoutesController < ApplicationController
     end
   end
   
-  def edit
-  end
+  def edit; end
   
   def update
     if @route.update(route_params)
@@ -38,6 +38,7 @@ class RoutesController < ApplicationController
     @route.destroy
     redirect_to routes_path
   end
+  
   private
   
   def route_params

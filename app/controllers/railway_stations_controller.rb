@@ -1,10 +1,8 @@
 class RailwayStationsController < ApplicationController
-  before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_serial_number, :update_time_departure, :update_time_arrival]
+  before_action :set_railway_station, only: %i[show edit update destroy     update_serial_number update_time_departure update_time_arrival]
   
-  before_action :set_route, only: [:update_serial_number,  :update_time_departure, :update_time_arrival]
+  before_action :set_route, only: %i[update_serial_number update_time_departure update_time_arrival]
   
-  # before_action , only: %i[update_time_departure, update_time_arrival]
-
   # GET /railway_stations
   def index
     @railway_stations = RailwayStation.all
@@ -20,8 +18,7 @@ class RailwayStationsController < ApplicationController
   end
 
   # GET /railway_stations/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /railway_stations
   def create
@@ -52,18 +49,17 @@ class RailwayStationsController < ApplicationController
   
   def update_serial_number
     @railway_station.update_serial_number(@route, params[:station_serial_number])
-     redirect_to @route
-    #render text: params
+    redirect_to @route
   end
   
   def update_time_departure
-     @railway_station.update_time(time: params[:time_departure], time_type: 'time_departure',route: @route)
+    @railway_station.update_time_departure(time: params[:time_departure], route: @route)
     redirect_to @route
   end
   
   def update_time_arrival
-     @railway_station.update_time(time: params[:time_arrival], time_type: 'time_arrival',route: @route)
-     redirect_to @route
+    @railway_station.update_time_arrival(time: params[:time_arrival], route: @route)
+    redirect_to @route
   end
 
   # DELETE /railway_stations/1
@@ -75,17 +71,17 @@ class RailwayStationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_railway_station
-      @railway_station = RailwayStation.find(params[:id])
-    end
-    
-    def set_route
-      @route = Route.find(params[:route_id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_railway_station
+    @railway_station = RailwayStation.find(params[:id])
+  end
+  
+  def set_route
+    @route = Route.find(params[:route_id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def railway_station_params
-      params.require(:railway_station).permit(:title)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def railway_station_params
+    params.require(:railway_station).permit(:title)
+  end
 end

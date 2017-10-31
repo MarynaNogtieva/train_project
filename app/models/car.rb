@@ -1,10 +1,10 @@
 class Car < ApplicationRecord
-  CAR_TYPES = %w(EconomCar BusinessCar SeatedCar SvCar).freeze
+  CAR_TYPES = %w[EconomCar BusinessCar SeatedCar SvCar].freeze
 
   belongs_to :train, optional: true
   
   validates :number, presence: true
-  validates :number, uniqueness: {scope: :train_id}
+  validates :number, uniqueness: { scope: :train_id }
   validates :type, inclusion: { in: CAR_TYPES, message: "%{type} is not a valid type" }
   
   # order by number by default
@@ -20,8 +20,11 @@ class Car < ApplicationRecord
   before_validation :set_number
   
   def kind
-    car_type_hash =  {'EconomCar' => 'economy', 'BusinessCar' => 'business', 'SeatedCar' => 'seated', 'SvCar' => 'sv'} 
-    result = car_type_hash.fetch(self.type, 'Car type was not set')
+    car_type_hash = { 'EconomCar' => 'economy', 
+                       'BusinessCar' => 'business',
+                       'SeatedCar' => 'seated', 
+                       'SvCar' => 'sv' } 
+    result = car_type_hash.fetch(type, 'Car type was not set')
     result
   end
   
@@ -33,9 +36,10 @@ class Car < ApplicationRecord
     CAR_TYPES 
   end
   
-  private 
+  private
   
   def set_number
-      self.number = (train.cars.maximum(:number) || 0).next
+    self.number = (train.cars.maximum(:number) || 0).next
   end
 end
+

@@ -47,10 +47,10 @@ class CarsController < ApplicationController
   end
   
   def type
-    Car.types.include?(params[:type]) ? params[:type] : "Car"
+    Car.types.include?(params[:type]) ? params[:type] : 'Car'
   end
 
   def car_params
-    params.require(:car).permit(:type, :number, :bottom_seats, :top_seats,:top_side_seats, :bottom_side_seats, :seated_seats, :train_id)
+    params.require(:car).permit(:type, :number, :bottom_seats, :top_seats, :top_side_seats, :bottom_side_seats, :seated_seats, :train_id)
   end
 end
