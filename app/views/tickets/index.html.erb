@@ -2,11 +2,7 @@
 
 <h1>Tickets you bought:</h1>
 
-<%if @tickets.blank? %>
-  <p>
-    You haven't purchased any tickets yet.
-  </p>
-<%else%>
+<%if @tickets.present? %>
   <table>
     <thead>
       <tr>
@@ -28,5 +24,9 @@
   </table>
 
   <br>
+<%else%>
+  <p>
+    You haven't purchased any tickets yet.
+  </p>
 <% end %>
 <%= link_to 'New Ticket', new_ticket_path %>
