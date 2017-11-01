@@ -12,8 +12,8 @@ class CarsController < ApplicationController
   end
 
   def create
-    set_train
     @car = Car.new(car_params)
+    @car.train = Train.find(params[:train_id])
     if @car.save
       redirect_to @car.train
     else
@@ -47,6 +47,6 @@ class CarsController < ApplicationController
   end
   
   def car_params
-    params.require(:car).permit(:type, :number, :bottom_seats, :top_seats, :top_side_seats, :bottom_side_seats, :seated_seats, :train_id)
+    params.require(:car).permit(:type, :number, :bottom_seats, :top_seats, :top_side_seats, :bottom_side_seats, :seated_seats)
   end
 end

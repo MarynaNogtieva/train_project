@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-
   resources :routes
 
   resources :railway_stations do
@@ -10,22 +9,14 @@ Rails.application.routes.draw do
   end
   
   resources :cars
-  resources :econom_car, controller: 'cars', type: 'EconomCar'
-  resources :sv_car, controller: 'cars', type: 'SvCar'
-  resources :business_car, controller: 'cars', type: 'BusinessCar'
-  resources :seated_car, controller: 'cars', type: 'SeatedCar'
+  # resources :econom_car, controller: 'cars', type: 'EconomCar' -
   
   resources :trains do
     resources :cars, shallow: true
-    resources :econom_car, controller: 'cars', type: 'EconomCar', shallow: true
-    resources :sv_car, controller: 'cars', type: 'SvCar', shallow: true
-    resources :business_car, controller: 'cars', type: 'BusinessCar', shallow: true
-    resources :seated_car, controller: 'cars', type: 'SeatedCar', shallow: true
   end
   
   resource :search, only: [:show, :new]
   resources :tickets
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
