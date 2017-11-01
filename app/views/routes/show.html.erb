@@ -15,9 +15,7 @@
     <p>There are no trains on this route</p>
 <%end%>
 
-<% if @route.railway_stations.empty? %>
-<p>There are no stations on this route</p>
-<% else %>
+<% if @route.railway_stations.any? %>
   <table>
     <thead>
       <th>Position</th>
@@ -54,6 +52,8 @@
       <%end%>
     </tbody>
   </table>
+<% else %>
+  <p>There are no stations on this route</p>
 <%end%>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |
