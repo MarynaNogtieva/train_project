@@ -24,8 +24,7 @@ class Car < ApplicationRecord
                        'BusinessCar' => 'business',
                        'SeatedCar' => 'seated', 
                        'SvCar' => 'sv' } 
-    result = car_type_hash.fetch(type, 'Car type was not set')
-    result
+   car_type_hash.fetch(type, 'Car type was not set')
   end
   
   def self.unique_types

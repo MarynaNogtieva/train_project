@@ -13,7 +13,7 @@ class CarsController < ApplicationController
 
   def create
     set_train
-    @car = @train.cars.new(car_params)
+    @car = Car.new(car_params)
     if @car.save
       redirect_to @car.train
     else
