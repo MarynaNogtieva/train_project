@@ -2,5 +2,5 @@
 
 <%= render 'form', car: @car %>
 
-<%= link_to 'Show', car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<%= link_to 'Show', train_car_path(@car.train, @car) %> |
+<%= link_to 'Back', train_path(@car.train) %>

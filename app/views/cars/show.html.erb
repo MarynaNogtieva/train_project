@@ -50,5 +50,5 @@
   </p>
   <%end%>
 
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<%= link_to 'Edit', edit_train_car_path(@car.train, @car) %> |
+<%= link_to 'Back', train_path(@car.train) %>

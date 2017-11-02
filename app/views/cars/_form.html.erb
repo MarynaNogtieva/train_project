@@ -1,4 +1,4 @@
-<%= form_for([car.becomes(Car)]) do |form| %>
+<%= form_for([@train, car.becomes(Car)]) do |form| %>
    <%= render 'shared/errors', resource: car%>
 
 
@@ -32,7 +32,7 @@
       <%= form.select :type, Car.unique_types, { prompted: 'Select car type' } %>
     </div>
     
-    <%=hidden_field_tag('train_id', params[:train_id], id: 'train_id')%>
+    <%#=hidden_field_tag('train_id', params[:train_id], id: 'train_id')%>
 
     <div class="actions">
       <%= form.submit "#{@car.new_record? ? 'Save' : 'Edit'}"%>

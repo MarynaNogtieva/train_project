@@ -8,11 +8,8 @@ Rails.application.routes.draw do
     patch :update_time_departure, on: :member
   end
   
-  resources :cars
-  # resources :econom_car, controller: 'cars', type: 'EconomCar' -
-  
   resources :trains do
-    resources :cars, shallow: true
+    resources :cars
   end
   
   resource :search, only: [:show, :new]

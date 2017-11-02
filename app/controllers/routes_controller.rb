@@ -1,6 +1,6 @@
 class RoutesController < ApplicationController
   
-  before_action :set_train, only: %i[show edit update destroy]
+  before_action :set_route, only: %i[show edit update destroy]
   
   def index
     @routes = Route.all
@@ -45,7 +45,7 @@ class RoutesController < ApplicationController
     params.require(:route).permit(:name, railway_station_ids: [])
   end
   
-  def set_train
+  def set_route
     @route = Route.find(params[:id])
   end
 end
