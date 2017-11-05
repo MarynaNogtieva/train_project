@@ -1,4 +1,4 @@
-class RailwayStationsController < ApplicationController
+class Admin::RailwayStationsController < Admin::BaseController
   before_action :set_railway_station, only: %i[show edit update destroy update_serial_number update_time_departure update_time_arrival]
   
   before_action :set_route, only: %i[update_serial_number update_time_departure update_time_arrival]
