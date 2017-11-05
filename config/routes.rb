@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
+  
   resources :routes
-  resources :trains
-  resources :railway_stations
-  resources :cars
-  resources :econom_car, controller: 'cars', type: 'EconomCar'
-  resources :sv_car, controller: 'cars', type: 'SvCar'
-  resources :business_car, controller: 'cars', type: 'BusinessCar'
-  resources :seated_car, controller: 'cars', type: 'SeatedCar'
+
+  resources :railway_stations do
+    patch :update_serial_number, on: :member #we can use on: :collectoin
+    patch :update_time_arrival, on: :member
+    patch :update_time_departure, on: :member
+  end
   
-  get 'welcome/index'
+  resources :trains do
+    resources :cars
+  end
   
-  root 'welcome#index'
+  resource :search, only: [:show, :new]
+  resources :tickets
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
