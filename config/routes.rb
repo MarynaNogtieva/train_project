@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  get 'welcome/index'
-  root  "welcome#index"
-  
   resource :search, only: [:show, :new]
   resources :routes
   resources :tickets
@@ -21,6 +18,9 @@ Rails.application.routes.draw do
   
     resources :routes
     resources :tickets
+    root 'welcome#index'
   end
+
+  root  "welcome#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
