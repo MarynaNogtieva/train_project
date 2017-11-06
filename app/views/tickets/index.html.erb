@@ -6,6 +6,7 @@
   <table>
     <thead>
       <tr>
+        <th>Name</th>
         <th>Ticket number</th>
         <th colspan="3"></th>
       </tr>
@@ -14,6 +15,7 @@
     <tbody>
       <% @tickets.each do |ticket| %>
         <tr>
+          <td><%= ticket.user.full_name %></td>
           <td><%= ticket.id %></td>
           <td><%= link_to 'Show', ticket %></td>
           <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
@@ -29,4 +31,4 @@
     You haven't purchased any tickets yet.
   </p>
 <% end %>
-<%= link_to 'New Ticket', new_ticket_path %>
+<%= link_to 'New Ticket', search_path %>
