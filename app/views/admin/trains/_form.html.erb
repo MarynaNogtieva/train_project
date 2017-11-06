@@ -1,5 +1,5 @@
 
-<%= form_with(model: train, local: true) do |form| %>
+<%= form_for([:admin, train]) do |form| %>
    <%= render 'shared/errors', resource: train%>
 
   <div class="field">
