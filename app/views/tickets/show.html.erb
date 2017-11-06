@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1>Ticket # <%= @ticket.id %></h1>
+<h2>Ticket bought by: <%= @ticket.user.email %></h2>
 <h2>Route: <%= @ticket.train.route.name %></h2>
 
 <p>Start station: <%= @ticket.start_station.title %></p>

@@ -27,7 +27,7 @@
       <% @route.railway_stations.ordered.each do |station|%>
         <tr>
           <td>
-            <%= form_tag update_serial_number_railway_station_path(station), method: :patch do%>
+            <%= form_tag update_serial_number_admin_railway_station_path(station), method: :patch do%>
               <%= number_field_tag :station_serial_number, station.position_in(@route) %>
               <%= hidden_field_tag :route_id, @route.id %>
               <%= submit_tag "Edit" %>   
@@ -35,14 +35,14 @@
           </td>
           <td><%=station.title%></td>
           <td>
-            <%=form_tag update_time_arrival_railway_station_path(station), method: :patch do%>
+            <%=form_tag update_time_arrival_admin_railway_station_path(station), method: :patch do%>
               <%= time_field_tag :time_arrival, station.arrival_at(@route) %>
               <%= hidden_field_tag :route_id, @route.id %>
               <%= submit_tag "Edit" %>
             <% end %>
          </td>
           <td>  
-            <%=form_tag update_time_departure_railway_station_path(station), method: :patch do%>
+            <%=form_tag update_time_departure_admin_railway_station_path(station), method: :patch do%>
               <%= time_field_tag :time_departure, station.departure_at(@route) %>
               <%= hidden_field_tag :route_id, @route.id %>
               <%= submit_tag "Edit" %>
@@ -56,5 +56,5 @@
   <p>There are no stations on this route</p>
 <%end%>
 
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Back', routes_path %>
+<%= link_to 'Edit', edit_admin_route_path(@route) %> |
+<%= link_to 'Back', admin_routes_path %>
