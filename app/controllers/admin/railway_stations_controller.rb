@@ -22,33 +22,25 @@ class Admin::RailwayStationsController < Admin::BaseController
   # POST /railway_stations
   def create
     @railway_station = RailwayStation.new(railway_station_params)
-
-    respond_to do |format|
       if @railway_station.save
-        format.html { redirect_to @railway_station, notice: 'Railway station was successfully created.' }
-        format.json { render :show, status: :created, location: @railway_station }
+        redirect_to [:admin, @railway_station], notice: 'Railway station was successfully created.' 
       else
-        format.html { render :new }
-        format.json { render json: @railway_station.errors, status: :unprocessable_entity }
+        render :new 
       end
-    end
   end
 
   # PATCH/PUT /railway_stations/1
   def update
-    respond_to do |format|
       if @railway_station.update(railway_station_params)
-        format.html { redirect_to @railway_station, notice: 'Railway station was successfully updated.' }
-        format.json { render :show, status: :ok, location: @railway_station }
+        redirect_to [:admin, @railway_station], notice: 'Railway station was successfully updated.' 
       else
-        format.html { render :edit }
+        render :edit 
       end
-    end
   end
   
   def update_serial_number
     @railway_station.update_serial_number(route: @route, position: params[:station_serial_number])
-    redirect_to @route
+    redirect_to [:admin, @route]
   end
   
   def update_time_departure
@@ -65,7 +57,7 @@ class Admin::RailwayStationsController < Admin::BaseController
   def destroy
     @railway_station.destroy
     respond_to do |format|
-      format.html { redirect_to railway_stations_url, notice: 'Railway station was successfully destroyed.' }
+      format.html { redirect_to admin_railway_stations_url, notice: 'Railway station was successfully destroyed.' }
     end
   end
 
