@@ -22,13 +22,7 @@ class TicketsController < ApplicationController
   
   def edit; end
   
-  def update
-    if @ticket.update(ticket_params)
-      redirect_to @ticket
-    else
-      render 'edit'
-    end
-  end
+  def update;  end
   
   def destroy
     @ticket.destroy
