@@ -45,12 +45,12 @@ class Admin::RailwayStationsController < Admin::BaseController
   
   def update_time_departure
     @railway_station.update_time_departure(time: params[:time_departure], route: @route)
-    redirect_to @route
+    redirect_to [:admin, @route]
   end
   
   def update_time_arrival
     @railway_station.update_time_arrival(time: params[:time_arrival], route: @route)
-    redirect_to @route
+    redirect_to [:admin, @route]
   end
 
   # DELETE /railway_stations/1
