@@ -1,6 +1,7 @@
 class Admin::TicketsController < Admin::BaseController
   before_action :authenticate_user!, only: %i[create update destroy]
   before_action :set_ticket, only: %i[show edit update destroy]
+  
   def index
     @tickets = Ticket.all
   end

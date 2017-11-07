@@ -1,6 +1,5 @@
 class Admin::RailwayStationsController < Admin::BaseController
   before_action :set_railway_station, only: %i[show edit update destroy update_serial_number update_time_departure update_time_arrival]
-  
   before_action :set_route, only: %i[update_serial_number update_time_departure update_time_arrival]
   
   # GET /railway_stations
@@ -22,20 +21,20 @@ class Admin::RailwayStationsController < Admin::BaseController
   # POST /railway_stations
   def create
     @railway_station = RailwayStation.new(railway_station_params)
-      if @railway_station.save
-        redirect_to [:admin, @railway_station], notice: 'Railway station was successfully created.' 
-      else
-        render :new 
-      end
+    if @railway_station.save
+      redirect_to [:admin, @railway_station], notice: 'Railway station was successfully created.' 
+    else
+      render :new 
+    end
   end
 
   # PATCH/PUT /railway_stations/1
   def update
-      if @railway_station.update(railway_station_params)
-        redirect_to [:admin, @railway_station], notice: 'Railway station was successfully updated.' 
-      else
-        render :edit 
-      end
+    if @railway_station.update(railway_station_params)
+      redirect_to [:admin, @railway_station], notice: 'Railway station was successfully updated.' 
+    else
+      render :edit 
+    end
   end
   
   def update_serial_number
@@ -56,9 +55,7 @@ class Admin::RailwayStationsController < Admin::BaseController
   # DELETE /railway_stations/1
   def destroy
     @railway_station.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_railway_stations_url, notice: 'Railway station was successfully destroyed.' }
-    end
+    redirect_to admin_railway_stations_url, notice: 'Railway station was successfully destroyed.' 
   end
 
   private
