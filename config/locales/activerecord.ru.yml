@@ -1,0 +1,11 @@
+ru:
+  activerecord:
+    models:
+      railway_station: ""
+      train: ""
+    attributes: 
+      railway_station: 
+        title: ""
+      train:
+         number:
+           
