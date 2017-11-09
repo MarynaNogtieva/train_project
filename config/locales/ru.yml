@@ -1,5 +1,3 @@
   ru: 
     hello: 'Привет'
-    device:
-      failure:
-        unauthenticated: "Прежде чем продолжить, вам нужно войти в систему или зunauthenticatedарегистрироваться."
+  
