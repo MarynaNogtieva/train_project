@@ -1,3 +1,13 @@
   ru: 
-    hello: 'Привет'
+    common:
+      back: "назад"
+      show: "показать"
+    admin:
+      railway_stations:
+        new:
+          title:
+      trains:
+        new:
+        edit:
+          title: "редактировать поезд"
   
