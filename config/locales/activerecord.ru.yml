@@ -17,6 +17,15 @@ ru:
          number: "номер"
          current_station: "текущая станция"
          route: "маршрут"
+      ticket:
+        first_name: "имя"
+        last_name: "фамилия"
+        passport_series: "паспортная серия"
+        passport_number: "номер паспорта"
+        user: "пользователь"
+        train: "поезд"
+        start_station: "начальная станция"
+        end_station: "конечная станция"
     errors:
       messages:
         blank: "не может быть пустым"

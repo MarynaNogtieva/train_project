@@ -2,15 +2,15 @@
 <%= render 'shared/errors', resource: ticket%>
 
   <div class="actions">
-    <%= form.label 'User: '%>
+    <%= form.label :user%>
     <%= form.collection_select :user_id, User.all, :id, :full_name %>
-    <%= form.label 'First Name: '%>
+    <%= form.label :first_name%>
     <%= form.text_field :first_name %>
-    <%= form.label 'Last Name: '%>
+    <%= form.label :last_name %>
     <%= form.text_field :last_name %>
-    <%= form.label 'Passport Series: '%>
+    <%= form.label :passport_series%>
     <%= form.text_field :passport_series %>
-    <%= form.label 'Passport Number: '%>
+    <%= form.label :passport_number%>
     <%= form.text_field :passport_number %>
     
     
@@ -19,20 +19,20 @@
     <%= hidden_field :ticket, :end_station_id, value: params[:end_station_id] %>
 
     <div class="field">
-      <%= form.label 'Train' %>
+      <%= form.label :train %>
       <%= form.collection_select :train_id, Train.all, :id, :number %>
     </div>
 
     <div class="field">
-      <%= form.label 'Start station' %>
+      <%= form.label :start_station %>
       <%= form.collection_select :start_station_id, RailwayStation.all, :id, :title %>
     </div>
 
     <div class="field">
-      <%= form.label 'End station' %>
+      <%= form.label :end_station %>
       <%= form.collection_select :end_station_id, RailwayStation.all, :id, :title %>
     </div>
   
-    <%= form.submit %>
+    <%= form.submit t(".submit", action: ticket.new_record? ? "создать" : "редактировать")%>
   </div>
 <% end %>

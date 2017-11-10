@@ -48,6 +48,24 @@
           top_side_seats: "верхние боковые места"
           bottom_side_seats: "нижние боковые места"
           seated_seats: "сидячие места"
+      tickets:
+        show: 
+          title: "билет"
+          bought_by: "был куплен пользователем"
+          route: "маршрут"
+          start_station: "начальная станция"
+          end_station: "конечная станция"
+          passenger_info: "информация о пассажире"
+          first_name: "имя"
+          last_name: "фамилия"
+          passport: "паспорт"
+        index:
+          title: "купленные билеты"
+          passenger_name: "имя пассажира"
+          ticket_number: "номер билета"
+          new_ticket: "новый билет"
+        form:
+          submit: "%{action} билет"
 
       
           
