@@ -10,8 +10,18 @@
     admin:
       railway_stations:
         new:
-          title: "новая станция"
-        form:
+         title: "новая станция"
+        index:
+         title: "станции"
+         station_title: "название станции"
+         add_station: "новая станция"
+        show:
+          title: "название станции"
+          not_included: "станция не входит в какие-либо маршруты"       
+        form: 
+          submit: "%{action} станцию"
+        edit:
+          title: "редактировать станцию"
       trains:
         new:
           title: "новый поезд"
@@ -38,7 +48,9 @@
           top_side_seats: "верхние боковые места"
           bottom_side_seats: "нижние боковые места"
           seated_seats: "сидячие места"
+
       
+          
 
           
           
