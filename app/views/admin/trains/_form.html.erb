@@ -1,23 +1,26 @@
 
 <%= form_for([:admin, train]) do |form| %>
    <%= render 'shared/errors', resource: train%>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="form-group">
+        <%= form.label :number %>
+        <%= form.text_field :number, id: :train_number, class: "form-control" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number, id: :train_number %>
-  </div>
+      <div class="form-group">
+        <%= form.label :current_station %>
+        <%= form.collection_select :current_station_id, RailwayStation.all, :id, :title, {}, {class: "form-control"} %>
+      </div>
+      
+      <div class="form-group">
+        <%=form.label :route %>
+        <%=form.collection_select :route_id, Route.all, :id, :name,{}, {class: "form-control"} %>
+      </div>
 
-  <div class="field">
-    <%= form.label :current_station %>
-    <%= form.collection_select :current_station_id, RailwayStation.all, :id, :title %>
-  </div>
-  
-  <div class="field">
-    <%=form.label :route %>
-    <%=form.collection_select :route_id, Route.all, :id, :name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit  t(".submit", action: @train.new_record? ? "создать" : "редактировать")%>
+      <div class="actions">
+        <%= form.submit  t(".submit", action: @train.new_record? ? "создать" : "редактировать"), class: "btn btn-primary" %>
+      </div>
+    </div>
   </div>
 <% end %>
