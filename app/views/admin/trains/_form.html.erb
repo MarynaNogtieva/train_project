@@ -18,6 +18,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "#{@train.new_record? ? 'Save' : 'Edit'}"%>
+    <%= form.submit  t(".submit", action: @train.new_record? ? "создать" : "редактировать")%>
   </div>
 <% end %>

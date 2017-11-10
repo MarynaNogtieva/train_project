@@ -2,12 +2,44 @@
     common:
       back: "назад"
       show: "показать"
+      create: "создать"
+      destroy: "удалить"
+      edit: "редактировать"
+      errors: "При редактировании формы возникли ошибки"
+      confirm: "Вы уверены?"
     admin:
       railway_stations:
         new:
-          title:
+          title: "новая станция"
+        form:
       trains:
         new:
+          title: "новый поезд"
         edit:
           title: "редактировать поезд"
+        form: 
+          submit: "%{action} поезд"
+        index: 
+          title: "поезда"
+        show:
+          number: "номер поезда"
+          current_station: "на станции"
+          not_mentioned: "не указано"
+          train_route: "маршрут"
+          cars_title: "вагоны"
+          add_car: "добавить вагон"
+        train: 
+          econom_cars: "вагоны эконом-класса"
+          business_cars: "купе вагоны"
+          sv_cars: "св вагоны"
+          seated_cars: "сидячие вагоны"
+          top_seats: "верхние места"
+          bottom_seats: "нижние места"
+          top_side_seats: "верхние боковые места"
+          bottom_side_seats: "нижние боковые места"
+          seated_seats: "сидячие места"
+      
+
+          
+          
   
