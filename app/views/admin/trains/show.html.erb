@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t('.number') %></strong>
+  <%= @train.number %>
+</p>
+<p>
+  <strong><%= t('.current_station') %></strong>
+  <%if @train.current_station.present?%>
+    <%=@train.current_station.title%>
+  <%else%>
+     <%= t('.not_mentioned') %>
+  <%end%>
+</p>
+
+
+  <h3><%= t('.train_route')  %></h3>
+<p>
+  <%if @train.route.present? %>
+    <%=@train.route.name%>
+  <%else%>
+    <%= t('.not_mentioned') %>
+  <%end%>
+</p>
+
+<h3><%= t('.cars_title') %></h3>
+<ul>
+  <%@train.cars.ordered_asc.each do |car|%>
+    <li><%= link_to "#{car.number}", admin_train_car_path(@train, car)%></li>
+  <%end%>
+</ul>
+
+
+  <%= link_to t(".add_car"), new_admin_train_car_path(@train) %>
+
+<%= link_to t("common.edit"), edit_admin_train_path(@train) %> |
+<%= link_to t("common.back"), admin_trains_path %>

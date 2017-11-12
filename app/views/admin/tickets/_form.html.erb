@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-sm-12 col-md-6">
+    <%= form_with(model: [:admin, ticket], local: true) do |form| %>
+    <%= render 'shared/errors', resource: ticket%>
+
+      <div class="actions">
+        <div class="form-group">
+          <%= form.label :user%>
+          <%= form.collection_select :user_id, User.all, :id, :full_name,{}, class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <%= form.label :first_name%>
+          <%= form.text_field :first_name, class: "form-control" %>
+        </div>
+          <%= form.label :last_name %>
+          <%= form.text_field :last_name, class: "form-control" %>
+        <div class="form-group">
+          <%= form.label :passport_series%>
+          <%= form.text_field :passport_series, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :passport_number%>
+          <%= form.text_field :passport_number, class: "form-control" %>
+        </div>  
+          
+          <%= hidden_field :ticket, :train_id, value: params[:train_id] %>
+          <%= hidden_field :ticket, :start_station_id, value: params[:start_station_id] %>
+          <%= hidden_field :ticket, :end_station_id, value: params[:end_station_id] %>
+
+        <div class="form-group">
+          <%= form.label :train %>
+          <%= form.collection_select :train_id, Train.all, :id, :number, {}, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :start_station %>
+          <%= form.collection_select :start_station_id, RailwayStation.all, :id, :title, {}, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :end_station %>
+          <%= form.collection_select :end_station_id, RailwayStation.all, :id, :title, {}, class: "form-control" %>
+        </div>
+      
+        <%= form.submit t(".submit", action: ticket.new_record? ? "создать" : "редактировать"), class: "btn btn-primary"%>
+      </div>
+    <% end %>
+  </div>
+</div>

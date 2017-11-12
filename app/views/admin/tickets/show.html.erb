@@ -1,0 +1,15 @@
+<h1><%= t('.title') %> #<%= @ticket.id %></h1>
+<h2><%= t('.bought_by') %>: <%= @ticket.user.full_name %></h2>
+<h2><%= t('.route') %>: <%= @ticket.train.route.name %></h2>
+
+<p><%= t('.start_station') %>: <%= @ticket.start_station.title %></p>
+<p><%= t('.end_station') %>: <%= @ticket.end_station.title %></p>
+
+<h2><%= t('.passenger_info') %></h2>
+<p><%= t('.first_name') %>: <%= @ticket.first_name %></p>
+<p><%= t('.last_name') %>: <%= @ticket.last_name %></p>
+<p><%= t('.passport') %>: <%= @ticket.passport_series %> <%= @ticket.passport_number %></p>
+<% if current_user.admin? %>
+  <%= link_to t('common.edit'), edit_admin_ticket_path(@ticket) %> |
+<% end %>
+<%= link_to t('common.back'), admin_tickets_path %>

@@ -1,0 +1,18 @@
+<p>
+  <strong><%= t('.title')%></strong>
+  <%= @railway_station.title %>
+</p>
+
+<%if @railway_station.routes.empty? %>
+  <p><%= t('.not_included') %></p>
+<%else%>
+  <ul>
+    <%@railway_station.routes.each do |route|%>
+    <li><%= route.name %></li>
+    <%end%>
+  </ul>
+<%end%>
+
+
+<%= link_to t('common.edit'), edit_admin_railway_station_path(@railway_station) %> |
+<%= link_to t('common.back'), admin_railway_stations_path %>

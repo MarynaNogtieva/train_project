@@ -1,0 +1,800 @@
+{
+  "skipTransform": true,
+  "report": {
+    "title": "Data Quality Report",
+    "metadata": {
+      "version": 0.1
+    }
+  },
+  "pages": {
+    "cover": {
+      "slug": "cover",
+      "id": "cover",
+      "title": "Cover",
+      "heading": null,
+      "subHeading": null,
+      "description": null,
+      "sections": {
+        "titlePage": {
+          "slug": "title_page",
+          "id": "title-page",
+          "title": "Title Page",
+          "description": null,
+          "datasets": {
+            "coverInfo": {
+              "slug": "cover_info",
+              "dataSource": {
+                "name": "cover_dummy",
+                "resultType": "single_row"
+              },
+              "fields": {
+                "processAreaSlug": {
+                  "slug": "process_area_slug",
+                  "title": "Process Area",
+                  "dataType": "string",
+                  "minValue": 0,
+                  "maxValue": 10
+                },
+                "orgName": {
+                  "slug": "org_name",
+                  "title": "Organization Name",
+                  "dataType": "string",
+                  "minValue": 0,
+                  "maxValue": 150
+                },
+                "createdOn": {
+                  "slug": "created_on",
+                  "title": "Created On",
+                  "dataType": "date"
+                }
+              },
+              "data": {
+                "processAreaSlug": "infrastructure_and_operations",
+                "processArea": {
+                  "slug": "infrastructure_and_operations",
+                  "title": "Infrastructure & Operations",
+                  "order": null,
+                  "description": "This is a one-page scorecard for the Infrastructure & Operations area of the IT Management & Governance Framework. It displays key satisfaction and operational metrics for the Availability & Capacity Management, Change Management, Asset Management, Configuration Management, Release Management, Operations Management, Service Desk and Incident & Problem Management processes, allowing you to assess their health at a glance."
+                },
+                "orgName": "AMCE Corporation",
+                "createdOn": "Fri Mar 31 2017 14:23:31 GMT-0400 (EDT)"
+              }
+            }
+          }
+        }
+      }
+    },
+    "scorecard": {
+      "slug": "scorecard",
+      "id": "scorecard",
+      "title": "Scorecard",
+      "heading": null,
+      "subHeading": null,
+      "description": null,
+      "sections": {
+        "processArea": {
+          "slug": "process_area",
+          "id": "process-area",
+          "title": "Scorecard",
+          "description": null,
+          "datasets": {
+            "processAreaInfo": {
+              "slug": "process_area_info",
+              "dataSource": {
+                "name": "dummy_process_area",
+                "resultType": "single_row"
+              },
+              "fields": {
+                "processAreaSlug": {
+                  "slug": "process_area_slug",
+                  "title": "Process Area",
+                  "dataType": "string",
+                  "minValue": 0,
+                  "maxValue": 10
+                }
+              },
+              "data": {
+                "processAreaSlug": "infrastructure_and_operations",
+                "processArea": {
+                  "slug": "infrastructure_and_operations",
+                  "title": "Infrastructure & Operations",
+                  "description": "This is a one-page scorecard for the Infrastructure & Operations area of the IT Management & Governance Framework. It displays key satisfaction and operational metrics for the Availability & Capacity Management, Change Management, Asset Management, Configuration Management, Release Management, Operations Management, Service Desk and Incident & Problem Management processes, allowing you to assess their health at a glance.",
+                  "order": null
+                }
+              }
+            }
+          }
+        },
+        "metrics": {
+          "slug": "metrics",
+          "id": "metrics",
+          "title": null,
+          "description": null,
+          "datasets": {
+            "processes": {
+              "slug": "processes",
+              "dataSource": {
+                "name": "dummy_processes",
+                "resultType": "table"
+              },
+              "fields": {
+                "processAreaSlug": {
+                  "slug": "process_area_slug",
+                  "title": "Process Area",
+                  "dataType": "string",
+                  "minValue": 0,
+                  "maxValue": 10
+                },
+                "processSlug": {
+                  "slug": "process_slug",
+                  "title": "Process",
+                  "dataType": "string",
+                  "minValue": 0,
+                  "maxValue": 10
+                },
+                "processOwnerName": {
+                  "slug": "process_owner_name",
+                  "title": "Owner",
+                  "dataType": "string",
+                  "minValue": 0,
+                  "maxValue": 100
+                },
+                "metricGroupSlug": {
+                  "slug": "metric_group_slug",
+                  "title": "Type",
+                  "dataType": "string",
+                  "minValue": 0,
+                  "maxValue": 10
+                },
+                "metricSlug": {
+                  "slug": "metric_slug",
+                  "title": "Metric",
+                  "dataType": "string",
+                  "minValue": 0,
+                  "maxValue": 10
+                },
+                "value": {
+                  "slug": "value",
+                  "title": "Value",
+                  "dataType": "decimal",
+                  "minValue": 0,
+                  "maxValue": 99999,
+                  "precision": 0
+                }
+              },
+              "data": [{
+                "processAreaSlug": "infrastructure_and_operations",
+                "processSlug": "availability_and_capacity_management",
+                "process": {
+                  "slug": "availability_and_capacity_management",
+                  "title": "Availability and Capacity Management",
+                  "process_code": "BAI04",
+                  "description": "Balance current and future needs for availability, performance and capacity of IT systems and infrastructure through the forecast of future performance and capacity requirements.",
+                  "order": null
+                },
+                "processOwnerName": "Syd Barrett",
+                "operationalMetrics": [{
+                  "metricSlug": "BAI04_01",
+                  "metric": {
+                    "slug": "BAI04_01",
+                    "title": "# of hours of unplanned downtime",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 0.12
+                }, {
+                  "metricSlug": "BAI04_02",
+                  "metric": {
+                    "slug": "BAI04_02",
+                    "title": "# of times performance SLAs were broken",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 3500
+                }, {
+                  "metricSlug": "BAI04_03",
+                  "metric": {
+                    "slug": "BAI04_03",
+                    "title": "# of unplanned upgrades",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 0.12
+                }],
+                "satisfactionMetrics": [{
+                  "metricSlug": "BAI04_05",
+                  "metric": {
+                    "slug": "BAI04_05",
+                    "title": "Satisfaction with infrastructure availability",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": 1,
+                    "precision": 0,
+                    "multiplier": 100
+                  },
+                  "value": 0.33
+                }, {
+                  "metricSlug": "BAI04_05",
+                  "metric": {
+                    "slug": "BAI04_05",
+                    "title": "Satisfaction with infrastructure performance",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": 1,
+                    "precision": 0,
+                    "multiplier": 100
+                  },
+                  "value": 0.60
+                }]
+              }, {
+                "processAreaSlug": "change_management",
+                "processSlug": "availability_and_capacity_management",
+                "process": {
+                  "slug": "change_management",
+                  "title": "Change Management",
+                  "process_code": "BAI06",
+                  "description": "Manage all IT system changes in a controlled manner, including standard changes and emergency maintenance relating to business processes, applications and infrastructure. Enable fast and reliable delivery of change to the business and mitigate the risk of negatively impacting the stability of the changed environment.",
+                  "order": null
+                },
+                "processOwnerName": "Syd Barrett",
+                "operationalMetrics": [{
+                  "metricSlug": "BAI06_02",
+                  "metric": {
+                    "slug": "BAI06_02",
+                    "title": "# of times problems were caused by business facing changes",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 22
+                }, {
+                  "metricSlug": "BAI06_03",
+                  "metric": {
+                    "slug": "BAI06_03",
+                    "title": "# of times problems were caused by infrastructure changes",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 2500
+                }, {
+                  "metricSlug": "BAI06_05",
+                  "metric": {
+                    "slug": "BAI06_05",
+                    "title": "# of times problems were caused by infrastructure changes",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 0.22
+                }, {
+                  "metricSlug": "BAI06_06",
+                  "metric": {
+                    "slug": "BAI06_06",
+                    "title": "% of emergency infrastructure changes",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 0.88
+                }],
+                "satisfactionMetrics": [{
+                  "metricSlug": "BAI06_08",
+                  "metric": {
+                    "slug": "BAI06_08",
+                    "title": "Satisfaction with business facing change management",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": 1,
+                    "precision": 0,
+                    "multiplier": 100
+                  },
+                  "value": 0.12
+                }, {
+                  "metricSlug": "BAI06_09",
+                  "metric": {
+                    "slug": "BAI06_09",
+                    "title": "Satisfaction with infrastructure change management",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": 1,
+                    "precision": 0,
+                    "multiplier": 100
+                  },
+                  "value": 0.12
+                }]
+              }, {
+                "processAreaSlug": "change_management",
+                "processSlug": "asset_management",
+                "process": {
+                  "slug": "asset_management",
+                  "title": "Asset Management",
+                  "process_code": "BAI09",
+                  "description": "Manage all IT system changes in a controlled manner, including standard changes and emergency maintenance relating to business processes, applications and infrastructure. Enable fast and reliable delivery of change to the business and mitigate the risk of negatively impacting the stability of the changed environment.",
+                  "order": null
+                },
+                "processOwnerName": "Syd Barrett",
+                "operationalMetrics": [{
+                  "metricSlug": "BAI06_02",
+                  "metric": {
+                    "slug": "BAI06_02",
+                    "title": "# of times problems were caused by business facing changes",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 22
+                }, {
+                  "metricSlug": "BAI06_03",
+                  "metric": {
+                    "slug": "BAI06_03",
+                    "title": "# of times problems were caused by infrastructure changes",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 2500
+                }, {
+                  "metricSlug": "BAI06_05",
+                  "metric": {
+                    "slug": "BAI06_05",
+                    "title": "# of times problems were caused by infrastructure changes",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 0.22
+                }, {
+                  "metricSlug": "BAI06_06",
+                  "metric": {
+                    "slug": "BAI06_06",
+                    "title": "% of emergency infrastructure changes",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 0.88
+                }],
+                "satisfactionMetrics": [{
+                  "metricSlug": "BAI06_08",
+                  "metric": {
+                    "slug": "BAI06_08",
+                    "title": "Satisfaction with business facing change management",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": 1,
+                    "precision": 0,
+                    "multiplier": 100
+                  },
+                  "value": 0.12
+                }, {
+                  "metricSlug": "BAI06_09",
+                  "metric": {
+                    "slug": "BAI06_09",
+                    "title": "Satisfaction with infrastructure change management",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": 1,
+                    "precision": 0,
+                    "multiplier": 100
+                  },
+                  "value": 0.12
+                }]
+              }, {
+              }, {
+                "processAreaSlug": "change_management",
+                "processSlug": "configuration_management",
+                "process": {
+                  "slug": "configuration_management",
+                  "title": "Configuration Management",
+                  "process_code": "BAI10",
+                  "description": "Manage all IT system changes in a controlled manner, including standard changes and emergency maintenance relating to business processes, applications and infrastructure. Enable fast and reliable delivery of change to the business and mitigate the risk of negatively impacting the stability of the changed environment.",
+                  "order": null
+                },
+                "processOwnerName": "Syd Barrett",
+                "operationalMetrics": [{
+                  "metricSlug": "BAI06_02",
+                  "metric": {
+                    "slug": "BAI06_02",
+                    "title": "# of times problems were caused by business facing changes",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 22
+                }, {
+                  "metricSlug": "BAI06_03",
+                  "metric": {
+                    "slug": "BAI06_03",
+                    "title": "# of times problems were caused by infrastructure changes",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 2500
+                }, {
+                  "metricSlug": "BAI06_05",
+                  "metric": {
+                    "slug": "BAI06_05",
+                    "title": "# of times problems were caused by infrastructure changes",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 0.22
+                }, {
+                  "metricSlug": "BAI06_06",
+                  "metric": {
+                    "slug": "BAI06_06",
+                    "title": "% of emergency infrastructure changes",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 0.88
+                }],
+                "satisfactionMetrics": [{
+                  "metricSlug": "BAI06_08",
+                  "metric": {
+                    "slug": "BAI06_08",
+                    "title": "Satisfaction with business facing change management",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": 1,
+                    "precision": 0,
+                    "multiplier": 100
+                  },
+                  "value": 0.12
+                }, {
+                  "metricSlug": "BAI06_09",
+                  "metric": {
+                    "slug": "BAI06_09",
+                    "title": "Satisfaction with infrastructure change management",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": 1,
+                    "precision": 0,
+                    "multiplier": 100
+                  },
+                  "value": 0.12
+                }]
+              },{}, {
+                "processAreaSlug": "change_management",
+                "processSlug": "configuration_management",
+                "process": {
+                  "slug": "configuration_management",
+                  "title": "Configuration Management",
+                  "process_code": "BAI10",
+                  "description": "Manage all IT system changes in a controlled manner, including standard changes and emergency maintenance relating to business processes, applications and infrastructure. Enable fast and reliable delivery of change to the business and mitigate the risk of negatively impacting the stability of the changed environment.",
+                  "order": null
+                },
+                "processOwnerName": "Syd Barrett",
+                "operationalMetrics": [{
+                  "metricSlug": "BAI06_02",
+                  "metric": {
+                    "slug": "BAI06_02",
+                    "title": "# of times problems were caused by business facing changes",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 22
+                }, {
+                  "metricSlug": "BAI06_03",
+                  "metric": {
+                    "slug": "BAI06_03",
+                    "title": "# of times problems were caused by infrastructure changes",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 2500
+                }, {
+                  "metricSlug": "BAI06_05",
+                  "metric": {
+                    "slug": "BAI06_05",
+                    "title": "# of times problems were caused by infrastructure changes",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 0.22
+                }, {
+                  "metricSlug": "BAI06_06",
+                  "metric": {
+                    "slug": "BAI06_06",
+                    "title": "% of emergency infrastructure changes",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 0.88
+                }],
+                "satisfactionMetrics": [{
+                  "metricSlug": "BAI06_08",
+                  "metric": {
+                    "slug": "BAI06_08",
+                    "title": "Satisfaction with business facing change management",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": 1,
+                    "precision": 0,
+                    "multiplier": 100
+                  },
+                  "value": 0.12
+                }, {
+                  "metricSlug": "BAI06_09",
+                  "metric": {
+                    "slug": "BAI06_09",
+                    "title": "Satisfaction with infrastructure change management",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": 1,
+                    "precision": 0,
+                    "multiplier": 100
+                  },
+                  "value": 0.12
+                }]
+              }, {
+                "processAreaSlug": "change_management",
+                "processSlug": "configuration_management",
+                "process": {
+                  "slug": "configuration_management",
+                  "title": "Configuration Management",
+                  "process_code": "BAI10",
+                  "description": "Manage all IT system changes in a controlled manner, including standard changes and emergency maintenance relating to business processes, applications and infrastructure. Enable fast and reliable delivery of change to the business and mitigate the risk of negatively impacting the stability of the changed environment.",
+                  "order": null
+                },
+                "processOwnerName": "Syd Barrett",
+                "operationalMetrics": [{
+                  "metricSlug": "BAI06_02",
+                  "metric": {
+                    "slug": "BAI06_02",
+                    "title": "# of times problems were caused by business facing changes",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 22
+                }, {
+                  "metricSlug": "BAI06_03",
+                  "metric": {
+                    "slug": "BAI06_03",
+                    "title": "# of times problems were caused by infrastructure changes",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 2500
+                }, {
+                  "metricSlug": "BAI06_05",
+                  "metric": {
+                    "slug": "BAI06_05",
+                    "title": "# of times problems were caused by infrastructure changes",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 0.22
+                }, {
+                  "metricSlug": "BAI06_06",
+                  "metric": {
+                    "slug": "BAI06_06",
+                    "title": "% of emergency infrastructure changes",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 0.88
+                }],
+                "satisfactionMetrics": [{
+                  "metricSlug": "BAI06_08",
+                  "metric": {
+                    "slug": "BAI06_08",
+                    "title": "Satisfaction with business facing change management",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": 1,
+                    "precision": 0,
+                    "multiplier": 100
+                  },
+                  "value": 0.12
+                }, {
+                  "metricSlug": "BAI06_09",
+                  "metric": {
+                    "slug": "BAI06_09",
+                    "title": "Satisfaction with infrastructure change management",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": 1,
+                    "precision": 0,
+                    "multiplier": 100
+                  },
+                  "value": 0.12
+                }]
+              }, {
+                "processAreaSlug": "change_management",
+                "processSlug": "configuration_management",
+                "process": {
+                  "slug": "configuration_management",
+                  "title": "Configuration Management",
+                  "process_code": "BAI10",
+                  "description": "Manage all IT system changes in a controlled manner, including standard changes and emergency maintenance relating to business processes, applications and infrastructure. Enable fast and reliable delivery of change to the business and mitigate the risk of negatively impacting the stability of the changed environment.",
+                  "order": null
+                },
+                "processOwnerName": "Syd Barrett",
+                "operationalMetrics": [{
+                  "metricSlug": "BAI06_02",
+                  "metric": {
+                    "slug": "BAI06_02",
+                    "title": "# of times problems were caused by business facing changes",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 22
+                }, {
+                  "metricSlug": "BAI06_03",
+                  "metric": {
+                    "slug": "BAI06_03",
+                    "title": "# of times problems were caused by infrastructure changes",
+                    "format_type": "count",
+                    "data_type": "integer",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 2500
+                }, {
+                  "metricSlug": "BAI06_05",
+                  "metric": {
+                    "slug": "BAI06_05",
+                    "title": "# of times problems were caused by infrastructure changes",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 0.22
+                }, {
+                  "metricSlug": "BAI06_06",
+                  "metric": {
+                    "slug": "BAI06_06",
+                    "title": "% of emergency infrastructure changes",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": null,
+                    "precision": 0,
+                    "multipler": null
+                  },
+                  "value": 0.88
+                }],
+                "satisfactionMetrics": [{
+                  "metricSlug": "BAI06_08",
+                  "metric": {
+                    "slug": "BAI06_08",
+                    "title": "Satisfaction with business facing change management",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": 1,
+                    "precision": 0,
+                    "multiplier": 100
+                  },
+                  "value": 0.12
+                }, {
+                  "metricSlug": "BAI06_09",
+                  "metric": {
+                    "slug": "BAI06_09",
+                    "title": "Satisfaction with infrastructure change management",
+                    "format_type": "percentage",
+                    "data_type": "decimal",
+                    "min_value": 0,
+                    "max_value": 1,
+                    "precision": 0,
+                    "multiplier": 100
+                  },
+                  "value": 0.12
+                }]
+              }]
+            }
+          }
+        }
+      }
+    }
+  },
+  "dictionary": {},
+  "includedPages": ["cover", "scorecard", "contents", "appsummary"],
+  "cobranding": {}
+}

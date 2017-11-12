@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-sm-12 col-md-6">
+    <%= form_for([:admin, @train, car.becomes(Car)]) do |form| %>
+       <%= render 'shared/errors', resource: car%>
+        <div class="field">
+          <%= form.label :bottom_seats %>
+          <%= form.text_field :bottom_seats, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :top_seats %>
+          <%= form.text_field :top_seats, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :top_side_seats %>
+          <%= form.text_field :top_side_seats, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :bottom_side_seats %>
+          <%= form.text_field :bottom_side_seats, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :seated_seats %>
+          <%= form.text_field :seated_seats, class: "form-control" %>
+        </div>
+      
+        <div class="form-group">
+          <%= form.label "Type:" %>
+          <%= form.select :type, Car.unique_types, { prompted: 'Select car type' }, { class: "form-control" } %>
+        </div>
+        
+        <%#=hidden_field_tag('train_id', params[:train_id], id: 'train_id')%>
+
+        <div class="actions">
+          <%= form.submit "#{@car.new_record? ? 'Save' : 'Edit'}", class: "btn btn-primary" %>
+        </div>
+    <% end %>
+  </div>
+</div>

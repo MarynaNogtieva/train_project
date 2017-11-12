@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-sm-12 col-md-6">
+    <%= form_with(model: ticket, local: true) do |form| %>
+    <%= render 'shared/errors', resource: ticket%>
+
+      <div class="actions">
+        <div class="form-group">
+          <%= form.label 'First Name: '%>
+          <%= form.text_field :first_name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label 'Last Name: '%>
+          <%= form.text_field :last_name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label 'Passport Series: '%>
+          <%= form.text_field :passport_series, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label 'Passport Number: '%>
+          <%= form.text_field :passport_number, class: "form-control" %>
+        </div>
+          <%= hidden_field :ticket, :train_id, value: params[:train_id] %>
+          <%= hidden_field :ticket, :start_station_id, value: params[:start_station_id] %>
+          <%= hidden_field :ticket, :end_station_id, value: params[:end_station_id] %>
+       <%= form.submit class: "btn btn-primary"%>
+      </div>
+    <% end %>
+  </div>
+</div>

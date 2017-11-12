@@ -1,0 +1,55 @@
+ru:
+  activerecord:
+    models:
+      railway_station: "станция"
+      train: "поезд"
+      car: "вагон"
+      econom_car: "вагон эконом-класса"
+      business_car: "купе вагон"
+      seated_car: "cидячий вагон"
+      sv_car: "св вагон"
+      user: "пользователь"
+      ticket: "билет"
+    attributes: 
+      railway_station: 
+        title: "название"
+      train:
+         number: "номер"
+         current_station: "текущая станция"
+         route: "маршрут"
+      ticket:
+        first_name: "имя"
+        last_name: "фамилия"
+        passport_series: "паспортная серия"
+        passport_number: "номер паспорта"
+        user: "пользователь"
+        train: "поезд"
+        start_station: "начальная станция"
+        end_station: "конечная станция"
+    errors:
+      messages:
+        blank: "не может быть пустым"
+        record_invalid: 'Возникли ошибки: %{errors}'
+        restrict_dependent_destroy:
+          has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
+          has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
+      models:
+        railway_station: 
+          attributes:
+            title: 
+              blank: "должнo быть указанo"
+        train:
+          attributes:
+            number: 
+              blank: "должен быть указан"
+        user:
+          attributes:
+            email:
+              blank: "должнa быть указанa"
+            first_name: 
+              blank: "должнo быть указанo"
+            last_name: 
+              blank: "должнa быть указанa"
+        
+        
+           
