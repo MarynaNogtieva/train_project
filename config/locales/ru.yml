@@ -1,0 +1,81 @@
+  ru: 
+    common:
+      back: "назад"
+      show: "показать"
+      create: "создать"
+      destroy: "удалить"
+      edit: "редактировать"
+      errors: "при редактировании формы возникли ошибки"
+      confirm: "вы уверены?"
+      login: "вход "
+      signup: "регистрация"
+      logout: "выйти"
+      menu: "меню"
+      admin_menu: "меню администратора"
+      welcome: "Добро пожаловать"
+    admin:
+      railway_stations:
+        new:
+         title: "новая станция"
+        index:
+         title: "станции"
+         station_title: "название станции"
+         add_station: "новая станция"
+        show:
+          title: "название станции"
+          not_included: "станция не входит в какие-либо маршруты"       
+        form: 
+          submit: "%{action} станцию"
+        edit:
+          title: "редактировать станцию"
+      trains:
+        new:
+          title: "новый поезд"
+        edit:
+          title: "редактировать поезд"
+        form: 
+          submit: "%{action} поезд"
+        index: 
+          title: "поезда"
+        show:
+          number: "номер поезда"
+          current_station: "на станции"
+          not_mentioned: "не указано"
+          train_route: "маршрут"
+          cars_title: "вагоны"
+          add_car: "добавить вагон"
+        train: 
+          econom_cars: "вагоны эконом-класса"
+          business_cars: "купе вагоны"
+          sv_cars: "св вагоны"
+          seated_cars: "сидячие вагоны"
+          top_seats: "верхние места"
+          bottom_seats: "нижние места"
+          top_side_seats: "верхние боковые места"
+          bottom_side_seats: "нижние боковые места"
+          seated_seats: "сидячие места"
+      tickets:
+        show: 
+          title: "билет"
+          bought_by: "был куплен пользователем"
+          route: "маршрут"
+          start_station: "начальная станция"
+          end_station: "конечная станция"
+          passenger_info: "информация о пассажире"
+          first_name: "имя"
+          last_name: "фамилия"
+          passport: "паспорт"
+        index:
+          title: "купленные билеты"
+          passenger_name: "имя пассажира"
+          ticket_number: "номер билета"
+          new_ticket: "новый билет"
+        form:
+          submit: "%{action} билет"
+
+      
+          
+
+          
+          
+  

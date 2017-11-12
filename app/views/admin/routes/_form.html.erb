@@ -1,17 +1,22 @@
-<%= form_for([:admin, @route]) do |f| %>
- <%= render 'shared/errors', resource: @route%>
+<div class="row">
+  <div class="col-sm-12 col-md-6">
+    <%= form_for([:admin, @route]) do |f| %>
+     <%= render 'shared/errors', resource: @route%>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, id: :@route_name %>
-  </div>
-  
-  <div class="field">
-       <%= f.label :railway_station_ids, "Список станций" %>
-       <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
-     </div>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, id: :@route_name, class: "form-control" %>
+      </div>
+      
+      <div class="form-group">
+         <%= f.label :railway_station_ids, "Список станций" %>
+         <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true, class: "form-control" } %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "#{@route.new_record? ? 'Create' : 'Edit'}"%>
+      <div class="actions">
+        <%= f.submit "#{@route.new_record? ? 'Create' : 'Edit'}", class: "btn btn-primary"%>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
+
