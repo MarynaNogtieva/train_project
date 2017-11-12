@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @train.number %>
+</p>
+<p>
+  <strong>On the station:</strong>
+  <%if @train.current_station.present?%>
+    <%=@train.current_station.title%>
+  <%else%>
+     Not mentioned
+  <%end%>
+</p>
+
+
+  <h3>On the route:</h3>
+<p>
+  <%if @train.route.present? %>
+    <%=@train.route.name%>
+  <%else%>
+     Not assigned
+  <%end%>
+</p>
+
+<h3>Cars</h3>
+<ul>
+  <%@train.cars.ordered_asc.each do |car|%>
+    <li><%= link_to "#{car.number}", admin_train_car_path(@train, car)%></li>
+  <%end%>
+</ul>
+
+
+  <%= link_to "Add car", new_admin_train_car_path(@train) %>
+
+<%= link_to 'Edit', edit_admin_train_path(@train) %> |
+<%= link_to 'Back', admin_trains_path %>

@@ -1,0 +1,23 @@
+
+<%= form_for([:admin, train]) do |form| %>
+   <%= render 'shared/errors', resource: train%>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number, id: :train_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Current Station" %>
+    <%= form.collection_select :current_station_id, RailwayStation.all, :id, :title %>
+  </div>
+  
+  <div class="field">
+    <%=form.label "Route" %>
+    <%=form.collection_select :route_id, Route.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "#{@train.new_record? ? 'Save' : 'Edit'}"%>
+  </div>
+<% end %>

@@ -9,8 +9,24 @@
   </head>
 
   <body>
-    <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     
+    <% if user_signed_in? %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      <% if current_user.admin? %>
+        <%= link_to 'Admin menu', admin_root_path %>
+      <% else %>
+        <%= link_to 'Menu', root_path %>
+      <% end %>
+      <h1>
+        Welcome: <%= current_user.full_name %>
+      </h1>
+    <% else %>
+      <%= link_to 'Login', new_user_session_path %>
+    <% end %>
+      
+    <%= yield %>
     <%= render "shared/footer"%>
   </body>
    

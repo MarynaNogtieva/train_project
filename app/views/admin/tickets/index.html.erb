@@ -17,9 +17,9 @@
         <tr>
           <td><%= ticket.user.full_name %></td>
           <td><%= ticket.id %></td>
-          <td><%= link_to 'Show', ticket %></td>
-          <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-          <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', admin_ticket_path(ticket) %></td>
+          <td><%= link_to 'Edit', edit_admin_ticket_path(ticket) %></td>
+          <td><%= link_to 'Destroy', [:admin, ticket], method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -31,4 +31,4 @@
     You haven't purchased any tickets yet.
   </p>
 <% end %>
-<%= link_to 'New Ticket', search_path %>
+<%= link_to 'New Ticket', new_admin_ticket_path %>
