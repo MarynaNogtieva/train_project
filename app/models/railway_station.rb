@@ -7,7 +7,9 @@ class RailwayStation < ActiveRecord::Base
   
   validates :title, presence: true
   
-  scope :ordered, -> { joins(:railway_stations_routes).order('railway_stations_routes.station_serial_number').uniq }
+  # scope :ordered, -> { joins(:railway_stations_routes).order('railway_stations_routes.station_serial_number').uniq }
+  
+  scope :ordered, -> { select('railway_stations.*, railway_stations_routes.station_serial_number').joins(:railway_stations_routes).order("railway_stations_routes.station_serial_number").uniq }
   
   def update_serial_number(route:, position:)
     station_route = station_route(route)
