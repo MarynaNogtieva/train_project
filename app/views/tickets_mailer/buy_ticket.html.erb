@@ -1,0 +1,4 @@
+<p> Hello, <%= @user.full_name%> </p>
+<p>You have purchased a ticket for route "<%= @ticket.route_name %>"</p>
+<p>Click <%= link_to "here", @ticket %> to see your ticket</p>
+<p>Click <%= link_to "here", tickets_url %> to see all your purchased ticket</p>
