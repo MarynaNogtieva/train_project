@@ -5,8 +5,7 @@ class TrainsController < ApplicationController
     @trains = Train.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @train = Train.new
@@ -22,15 +21,13 @@ class TrainsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @train.update(train_params)
       redirect_to @train
     else
-      render :edit
-      
+      render :edit  
     end
   end
 

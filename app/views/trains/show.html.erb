@@ -26,10 +26,12 @@
 <h3>Cars</h3>
 <ul>
   <%@train.cars.ordered_asc.each do |car|%>
-    <li><%= link_to "#{car.number}", car_path(car)%></li>
+    <li><%= link_to "#{car.number}", train_car_path(@train, car)%></li>
   <%end%>
 </ul>
 
+
+  <%= link_to "Add car", new_train_car_path(@train) %>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

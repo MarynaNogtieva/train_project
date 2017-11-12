@@ -1,0 +1,30 @@
+<h1>Result for your search: <%= @start_station.title %> - <%= @end_station.title %></h1>
+
+Available trains:
+<table>
+  <tr>
+    <th>Train number</th>
+    <th>Route name</th>
+    <th>Arrival time</th>
+    <th>Departure time</th>
+    <th></th>
+  </tr>
+
+<%  @routes_trains.each do |train| %>
+<tr>
+  <td><%= train.number %></td>
+  <td><%= train.route.name %></td>
+  <td><%= @start_station.departure_at(train.route) %></td>
+  <td><%= @end_station.arrival_at(train.route) %></td>
+  <td>
+      <%=form_tag new_ticket_path, method: 'get' do%>
+        <%= hidden_field_tag :train_id, train.id %>
+        <%= hidden_field_tag :start_station_id, @start_station.id %>
+        <%= hidden_field_tag :end_station_id, @end_station.id %>
+        <%= submit_tag 'Buy ticket'%>
+      <%end%>
+  </td>
+</tr>
+<%end%>
+</table>
+
