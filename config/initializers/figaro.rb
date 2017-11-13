@@ -1,0 +1,1 @@
+Figaro.require_keys('GMAIL_SMTP_USERNAME', 'GMAIL_SMTP_PASSWORD')  
