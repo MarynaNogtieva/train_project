@@ -100,7 +100,7 @@ Rails.application.configure do
     domain:               'rails-tutu.herokuapp.com',
     authentication:       'plain',
     enable_starttls_auto: true,
-    user_name:            ENV['GMAIL_SMTP_USER'],
+    user_name:            ENV['GMAIL_SMTP_USERNAME'],
     password:             ENV['GMAIL_SMTP_PASSWORD']
   }
 end
