@@ -1,7 +1,10 @@
 <tr>
 
   
-  <td><%= train.number %></td>
+  <td>
+    <span id="train_number"><%= train.number %></span>
+    <%= render 'form', train: train, hidden: true %>
+  </td>
   <td> <%= t(".econom_cars") + ": #{train.cars.economy.count}, " +   t(".top_seats") + ": #{train.seats(car_type: 'EconomCar', seats_type: 'top_seats')}," + t(".bottom_seats") + ": #{train.seats(car_type: 'EconomCar', seats_type: 'bottom_seats')},
     " + t(".top_side_seats") + ": #{train.seats(car_type: 'EconomCar', seats_type: 'top_side_seats')}, " + t(".bottom_side_seats") + ": #{train.seats(car_type: 'EconomCar', seats_type: 'bottom_side_seats')}" %>  
   </td>  
@@ -17,6 +20,6 @@
   </td> 
 
   <td><%= link_to t('common.show'), admin_train_path(train) %></td>
-  <td><%= link_to t('common.edit'), edit_admin_train_path(train) %></td>
+  <td><%= link_to t('common.edit'), '', class: 'edit_train', data: { train_id: train.id } %></td>
   <td><%= link_to t('common.destroy'), [:admin, train], method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
