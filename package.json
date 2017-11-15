@@ -1,5 +1,14 @@
 {
   "name": "train_project",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
 }

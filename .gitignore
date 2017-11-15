@@ -49,3 +49,7 @@ certs/
 dump.rdb
 config/*.sphinx.conf
 db/sphinx
+
+
+node_modules/
+.eslintrc.json
