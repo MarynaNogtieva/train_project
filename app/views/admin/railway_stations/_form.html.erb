@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-12 col-md-6">
-    <%= form_for [:admin, @railway_station] do |form| %>
+    <%= form_for [:admin, railway_station], html: { style: "display: #{hidden ? 'none' : 'block'}" } do |form| %>
        <%= render 'shared/errors', resource: railway_station%>
       <div class="form-group">
         <%= form.label :title %>
@@ -8,7 +8,7 @@
       </div>
 
       <div class="actions">
-        <%= form.submit t('.submit', action: @railway_station.new_record? ? "создать" : "редактировать"), class: "btn btn-primary" %>
+        <%= form.submit t('.submit', action: railway_station.new_record? ? "создать" : "редактировать"), class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>

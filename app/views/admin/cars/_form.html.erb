@@ -2,27 +2,27 @@
   <div class="col-sm-12 col-md-6">
     <%= form_for([:admin, @train, car.becomes(Car)]) do |form| %>
        <%= render 'shared/errors', resource: car%>
-        <div class="field">
+        <div class="form-group car-bottom-seats">
           <%= form.label :bottom_seats %>
           <%= form.text_field :bottom_seats, class: "form-control" %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group car-top-seats">
           <%= form.label :top_seats %>
           <%= form.text_field :top_seats, class: "form-control" %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group car-top-side-seats">
           <%= form.label :top_side_seats %>
           <%= form.text_field :top_side_seats, class: "form-control" %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group car-bottom-side-seats">
           <%= form.label :bottom_side_seats %>
           <%= form.text_field :bottom_side_seats, class: "form-control" %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group car-seated-seats">
           <%= form.label :seated_seats %>
           <%= form.text_field :seated_seats, class: "form-control" %>
         </div>
